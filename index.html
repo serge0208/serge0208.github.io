@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serge WEMBE II-ESSOUMBA — Expert Infrastructure IT</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --navy:   #08111A;
+  --navy-2: #0E1E2E;
+  --sky:    #38BDF8;
+  --sky-2:  #7DD3FC;
+  --mint:   #34D399;
+  --violet: #A78BFA;
+  --coral:  #FB7185;
+  --amber:  #FCD34D;
+  --white:  #F0F9FF;
+  --g1:     #CBD5E1;
+  --g2:     #94A3B8;
+  --g3:     #475569;
+  --bdr:    rgba(56,189,248,0.2);
+  --head:   'Syne', sans-serif;
+  --body:   'DM Sans', sans-serif;
+  --mono:   'JetBrains Mono', monospace;
+}
+body { font-family: var(--body); background: var(--navy); color: var(--white); line-height: 1.7; overflow-x: hidden; max-width: 100vw; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; width: 100%; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; height: 64px; background: rgba(8,17,26,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--bdr); }
+.nav-in { max-width: 1080px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--head); font-size: 18px; font-weight: 800; color: var(--white); }
+.nav-logo span { color: var(--sky); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--g1); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--sky); }
+.nav-cta { padding: 8px 20px; border: 1px solid var(--sky); color: var(--sky); border-radius: 6px; font-size: 13px; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: rgba(56,189,248,0.1); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 24px 80px; background: radial-gradient(ellipse 700px 500px at 85% 15%, rgba(56,189,248,0.08) 0%, transparent 70%), radial-gradient(ellipse 500px 400px at 5% 85%, rgba(167,139,250,0.06) 0%, transparent 70%), var(--navy); }
+.hero-in { max-width: 1080px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 320px; gap: 60px; align-items: center; }
+.htag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--sky); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+.htag::before { content: ''; width: 20px; height: 1px; background: var(--sky); }
+h1 { font-family: var(--head); font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px; }
+h1 .grad { background: linear-gradient(90deg, var(--sky) 0%, var(--mint) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hrole { font-family: var(--mono); font-size: 13px; color: var(--sky-2); line-height: 2; margin-bottom: 20px; }
+.hdesc { font-size: 16px; color: var(--g1); font-weight: 300; line-height: 1.8; max-width: 500px; margin-bottom: 32px; }
+.hbtns { display: flex; gap: 12px; flex-wrap: wrap; }
+.bta { padding: 13px 28px; border-radius: 6px; background: var(--sky); color: var(--navy); font-weight: 700; font-size: 14px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; display: inline-block; }
+.bta:hover { opacity: 0.9; transform: translateY(-2px); }
+.btb { padding: 13px 28px; border-radius: 6px; border: 1px solid var(--bdr); color: var(--g1); font-size: 14px; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+.btb:hover { border-color: var(--sky); color: var(--sky); }
+
+/* Hero Card */
+.hcard { background: var(--navy-2); border: 1px solid var(--bdr); border-radius: 16px; padding: 24px; position: relative; }
+.hcard::before { content: ''; position: absolute; top: 0; left: 20px; right: 20px; height: 2px; background: linear-gradient(90deg, var(--sky), var(--mint)); border-radius: 0 0 2px 2px; }
+.hav { width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg, var(--sky), var(--mint)); display: flex; align-items: center; justify-content: center; font-family: var(--head); font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 14px; }
+.hn { font-family: var(--head); font-size: 14px; font-weight: 800; color: var(--white); margin-bottom: 4px; }
+.hs { font-family: var(--mono); font-size: 11px; color: var(--g2); margin-bottom: 18px; }
+.hsg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
+.hst { background: rgba(56,189,248,0.07); border: 1px solid var(--bdr); border-radius: 8px; padding: 10px; text-align: center; }
+.hsn { font-family: var(--head); font-size: 18px; font-weight: 800; color: var(--sky); display: block; margin-bottom: 2px; }
+.hsl { font-size: 11px; color: var(--g2); }
+.hsep { height: 1px; background: var(--bdr); margin-bottom: 14px; }
+.hchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.hchip { font-family: var(--mono); font-size: 10px; padding: 3px 8px; border-radius: 4px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.25); color: var(--sky); }
+
+/* STRIP */
+.strip { background: var(--navy-2); border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); padding: 36px 24px; }
+.sg { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
+.si { text-align: center; padding: 12px 16px; border-right: 1px solid var(--bdr); }
+.si:last-child { border-right: none; }
+.sn { font-family: var(--head); font-size: 2rem; font-weight: 800; color: var(--sky); display: block; line-height: 1; margin-bottom: 6px; }
+.sl { font-size: 12px; color: var(--g2); }
+
+/* SECTION */
+.sec { padding: 88px 24px; }
+.sec.alt { background: var(--navy-2); }
+.stag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.stag::after { content: ''; width: 36px; height: 1px; background: var(--sky); opacity: 0.5; }
+h2 { font-family: var(--head); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; color: var(--white); line-height: 1.15; margin-bottom: 14px; }
+.sdesc { font-size: 15px; color: var(--g1); font-weight: 300; line-height: 1.8; max-width: 540px; }
+
+/* ABOUT */
+.ag { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-top: 44px; }
+.at p { font-size: 15px; color: var(--g1); font-weight: 300; line-height: 1.85; margin-bottom: 14px; }
+.at strong { color: var(--sky); font-weight: 500; }
+.tl { margin-top: 4px; }
+.tlr { display: grid; grid-template-columns: 68px 1fr; gap: 14px; margin-bottom: 24px; position: relative; }
+.tlr::before { content: ''; position: absolute; left: 67px; top: 20px; bottom: -24px; width: 1px; background: linear-gradient(to bottom, var(--bdr), transparent); }
+.tlr:last-child::before { display: none; }
+.tly { font-family: var(--mono); font-size: 11px; color: var(--sky); text-align: right; padding-top: 2px; font-weight: 500; }
+.tlb { position: relative; padding-left: 18px; }
+.tlb::before { content: ''; position: absolute; left: -5px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 0 3px rgba(56,189,248,0.2); }
+.tlb h4 { font-family: var(--head); font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.tlb p { font-size: 13px; color: var(--g2); line-height: 1.6; }
+
+/* PROJECTS */
+.pjh { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+.pjg { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.pc { background: var(--navy); border: 1px solid var(--bdr); border-radius: 14px; padding: 28px; position: relative; transition: border-color 0.25s, transform 0.25s; }
+.pc:hover { border-color: rgba(56,189,248,0.45); transform: translateY(-3px); }
+.pc::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 14px 14px 0 0; }
+.c1::before { background: linear-gradient(90deg,var(--sky),var(--mint)); }
+.c2::before { background: linear-gradient(90deg,var(--violet),var(--sky)); }
+.c3::before { background: linear-gradient(90deg,var(--coral),var(--amber)); }
+.c4::before { background: linear-gradient(90deg,var(--mint),var(--sky-2)); }
+.c5::before { background: linear-gradient(90deg,var(--violet),var(--coral)); }
+.pn { font-family: var(--mono); font-size: 11px; color: var(--g3); margin-bottom: 14px; letter-spacing: 0.08em; }
+.pi { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2); }
+.c2 .pi { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.2); }
+.c3 .pi { background: rgba(251,113,133,0.1); border-color: rgba(251,113,133,0.2); }
+.c4 .pi { background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.2); }
+.c5 .pi { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.2); }
+.pt { font-family: var(--head); font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 12px; }
+.pd { font-size: 14px; color: var(--g1); font-weight: 300; line-height: 1.75; margin-bottom: 18px; }
+.pd strong { color: var(--sky-2); font-weight: 500; }
+.c2 .pd strong { color: var(--violet); }
+.c3 .pd strong { color: var(--coral); }
+.c4 .pd strong { color: var(--mint); }
+.c5 .pd strong { color: var(--violet); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.pill { font-family: var(--mono); font-size: 10px; padding: 3px 9px; border-radius: 4px; border: 1px solid; }
+.psky { color: var(--sky); background: rgba(56,189,248,0.08); border-color: rgba(56,189,248,0.25); }
+.pmint { color: var(--mint); background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.25); }
+.pviolet { color: var(--violet); background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.25); }
+.pcoral { color: var(--coral); background: rgba(251,113,133,0.08); border-color: rgba(251,113,133,0.25); }
+.pamber { color: var(--amber); background: rgba(252,211,77,0.08); border-color: rgba(252,211,77,0.25); }
+.pm { font-family: var(--mono); font-size: 11px; color: var(--g3); display: flex; align-items: center; gap: 6px; }
+.pdot { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
+.pc.full { grid-column: 1 / -1; }
+.pfi { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+/* SKILLS */
+.skg { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 44px; }
+.skc { background: var(--navy-2); border: 1px solid var(--bdr); border-radius: 12px; padding: 22px; transition: border-color 0.2s, transform 0.2s; }
+.skc:hover { border-color: rgba(56,189,248,0.4); transform: translateY(-2px); }
+.skic { font-size: 22px; margin-bottom: 12px; }
+.skn { font-family: var(--head); font-size: 13px; font-weight: 700; color: var(--sky-2); margin-bottom: 12px; }
+.skl { list-style: none; }
+.skl li { font-size: 13px; color: var(--g1); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 8px; font-weight: 300; }
+.skl li:last-child { border-bottom: none; }
+.skl li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--sky); flex-shrink: 0; opacity: 0.6; }
+.skc.full { grid-column: 1 / -1; }
+.skfi { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.skch { font-family: var(--mono); font-size: 12px; padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(167,139,250,0.3); background: rgba(167,139,250,0.08); color: var(--violet); }
+
+/* CONTACT */
+.cbox { background: var(--navy-2); border: 1px solid var(--bdr); border-radius: 20px; padding: 56px 44px; text-align: center; position: relative; overflow: hidden; margin-top: 44px; }
+.cbox::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--sky), var(--mint), var(--violet), var(--coral)); }
+.ctag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.ctag::before, .ctag::after { content: ''; width: 28px; height: 1px; background: rgba(56,189,248,0.4); }
+.cbox h2 { font-family: var(--head); font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 800; letter-spacing: -0.03em; color: var(--white); margin-bottom: 14px; }
+.cbox p { font-size: 15px; color: var(--g1); font-weight: 300; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
+.clinks { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.cbtn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 8px; background: rgba(56,189,248,0.07); border: 1px solid var(--bdr); color: var(--white); text-decoration: none; font-family: var(--mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+.cbtn:hover { border-color: var(--sky); background: rgba(56,189,248,0.12); transform: translateY(-2px); }
+
+/* FOOTER */
+footer { background: var(--navy); border-top: 1px solid var(--bdr); padding: 24px; }
+.fi { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.fn { font-family: var(--head); font-size: 14px; font-weight: 700; color: var(--g1); }
+.fc { font-family: var(--mono); font-size: 11px; color: var(--g3); }
+.fst { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--mint); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 8px var(--mint); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+
+/* REVEAL */
+.rev { opacity: 0; transform: translateY(22px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+.rev.on { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s; }
+.d2 { transition-delay: .2s; }
+.d3 { transition-delay: .3s; }
+
+/* RESPONSIVE */
+@media (min-width: 1100px) {
+  .pjg { grid-template-columns: 1fr 1fr; }
+  .pc.full { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hero-in { grid-template-columns: 1fr; }
+  .hcard { display: none; }
+  .ag { grid-template-columns: 1fr; gap: 36px; }
+  .pfi { grid-template-columns: 1fr; gap: 16px; }
+  .skg { grid-template-columns: 1fr 1fr; }
+  .skc.full { grid-column: 1 / -1; }
+  .sg { grid-template-columns: 1fr 1fr; }
+  .si:nth-child(2) { border-right: none; }
+  .cbox { padding: 36px 20px; }
+}
+@media (max-width: 540px) {
+  h1 { font-size: 2.2rem; }
+  .hbtns { flex-direction: column; }
+  .bta, .btb { text-align: center; }
+  .skg { grid-template-columns: 1fr; }
+  .skc.full { grid-column: auto; }
+  .sg { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="nav-logo">SW<span>·II</span></div>
+    <div class="nav-links">
+      <a href="#apropos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact" class="nav-cta">Contact →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-in">
+    <div>
+      <div class="htag">Administrateur Infrastructure IT · Nantes, France</div>
+      <h1>Serge WEMBE<br><span class="grad">II-ESSOUMBA</span></h1>
+      <div class="hrole">
+        Expert Systèmes · Réseaux · Infrastructure<br>
+        Microsoft · Linux · Virtualisation · Sécurité · DevOps<br>
+        Pilotage de projets IT end-to-end
+      </div>
+      <p class="hdesc">Profil transversal infra + projet. Je conçois, déploie et pilote des architectures IT complexes — du poste de travail au datacenter, de la politique de sécurité à la continuité de service.</p>
+      <div class="hbtns">
+        <a href="#projets" class="bta">Voir mes projets</a>
+        <a href="#contact" class="btb">Me contacter</a>
+      </div>
+    </div>
+    <div class="hcard">
+      <div class="hav">SW</div>
+      <div class="hn">Serge WEMBE II-ESSOUMBA</div>
+      <div class="hs">// Expert Infra · RNCP 7 · Nov. 2026</div>
+      <div class="hsg">
+        <div class="hst"><span class="hsn">~200</span><span class="hsl">Serveurs Linux</span></div>
+        <div class="hst"><span class="hsn">~150</span><span class="hsl">Serveurs Windows</span></div>
+        <div class="hst"><span class="hsn">5+</span><span class="hsl">Projets pilotés</span></div>
+        <div class="hst"><span class="hsn">RNCP7</span><span class="hsl">Expert IT</span></div>
+      </div>
+      <div class="hsep"></div>
+      <div class="hchips">
+        <span class="hchip">Intune</span><span class="hchip">VMware</span>
+        <span class="hchip">FortiGate</span><span class="hchip">Veeam</span>
+        <span class="hchip">Linux</span><span class="hchip">M365</span>
+        <span class="hchip">Terraform</span><span class="hchip">Kubernetes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="sg">
+    <div class="si"><span class="sn">~350</span><span class="sl">Serveurs administrés</span></div>
+    <div class="si"><span class="sn">5+</span><span class="sl">Projets end-to-end</span></div>
+    <div class="si"><span class="sn">3</span><span class="sl">Niveaux RNCP validés</span></div>
+    <div class="si"><span class="sn">30+</span><span class="sl">Technologies maîtrisées</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="apropos">
+  <div class="wrap">
+    <div class="stag rev">À propos</div>
+    <h2 class="rev d1">Une reconversion construite<br>brique par brique</h2>
+    <p class="sdesc rev d2">De l'action sociale à l'IT via Transitions Pro. Chaque niveau RNCP associé à une immersion terrain réelle.</p>
+    <div class="ag">
+      <div class="at rev">
+        <p>De l'action sociale à l'IT : j'ai construit mon expertise de manière <strong>délibérée et progressive</strong>. RNCP 5 → 6 → 7, chaque niveau associé à une immersion terrain réelle.</p>
+        <p>Aujourd'hui chez OPPER, je pilote des projets de bout en bout : <strong>Modern Workplace, intégration multi-sites, migrations critiques, PRA.</strong></p>
+        <p>Ce qui me distingue : naviguer entre l'<strong>opérationnel profond</strong> (350+ serveurs, vCenter, FortiGate, Veeam) et la <strong>dimension pilotage</strong> (RACI, WBS, CAB). Un profil rare.</p>
+      </div>
+      <div class="tl rev d1">
+        <div class="tlr">
+          <div class="tly">2023</div>
+          <div class="tlb"><h4>Econocom — Stage N1/N2</h4><p>Flotte SNCF ~75 000 devices. ITIL, ServiceNow, support structuré à grande échelle.</p></div>
+        </div>
+        <div class="tlr">
+          <div class="tly">2023–24</div>
+          <div class="tlb"><h4>Lumiplan — Alternance Admin Sys/Réseau/BDD</h4><p>Projet SIP : Debian 12, Docker, ELK Stack, PostgreSQL, Flask, React, GitLab CI/CD.</p></div>
+        </div>
+        <div class="tlr">
+          <div class="tly">2024–26</div>
+          <div class="tlb"><h4>OPPER — Alternance Infrastructure Senior</h4><p>~350 serveurs, vCenter, M365, Modern Workplace, Toulouse, HAProxy, Veeam B&R. Pilotage end-to-end.</p></div>
+        </div>
+        <div class="tlr">
+          <div class="tly">Nov. 2026</div>
+          <div class="tlb"><h4>RNCP 7 — Expert en Informatique</h4><p>Obtention du titre Expert en Informatique et Systèmes d'Information.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec alt" id="projets">
+  <div class="wrap">
+    <div class="pjh">
+      <div>
+        <div class="stag rev">Projets</div>
+        <h2 class="rev d1">Projets pilotés.<br>Résultats réels.</h2>
+      </div>
+      <p class="sdesc rev" style="margin-bottom:0;max-width:340px;">Des projets de production, pas des labs. Des décisions techniques assumées.</p>
+    </div>
+    <div class="pjg">
+
+      <div class="pc c1 rev">
+        <div class="pn">01 / Modern Workplace</div>
+        <div class="pi">🖥️</div>
+        <div class="pt">Modern Workplace · Intune · Autopilot · Defender for Endpoint</div>
+        <p class="pd">Pilotage end-to-end sur <strong>~200 postes Windows et macOS</strong>, parti de zéro — sans référentiel existant. Passage GPO/AD → cloud-first : Hybrid AAD Join, groupes dynamiques, conformité, LAPS, apps packagées. Migration <strong>ESET → Defender finalisée</strong>. Autonomie totale, veille technologique soutenue pour surmonter des blocages nombreux et inédits.</p>
+        <div class="pills">
+          <span class="pill psky">Intune</span><span class="pill psky">Autopilot</span><span class="pill psky">Defender for Endpoint</span><span class="pill psky">Entra ID</span><span class="pill pmint">LAPS</span><span class="pill pmint">Conditional Access</span><span class="pill psky">~200 postes</span>
+        </div>
+        <div class="pm"><span class="pdot"></span> Migration terminée · 200 postes · Production · OPPER</div>
+      </div>
+
+      <div class="pc c2 rev d1">
+        <div class="pn">02 / Réseau & Sécurité</div>
+        <div class="pi">🌐</div>
+        <div class="pt">Intégration site Toulouse · Rachat OPPER · Fortinet · VPN IPsec</div>
+        <p class="pd">Pilotage de l'intégration réseau d'un site de <strong>~50 utilisateurs</strong> suite au rachat par OPPER. Livré en <strong>moins d'une semaine</strong> : ISP, FortiGate, tunnel IPsec VPN, AD local, cartographie des flux, alignement sécurité groupe. Maîtrise bout en bout sous forte contrainte de temps.</p>
+        <div class="pills">
+          <span class="pill pviolet">FortiGate</span><span class="pill pviolet">IPsec VPN</span><span class="pill pviolet">Active Directory</span><span class="pill psky">Architecture réseau</span><span class="pill pamber">~50 utilisateurs</span>
+        </div>
+        <div class="pm"><span class="pdot" style="background:var(--violet)"></span> Livré en 1 semaine · 50 users · Rachat · OPPER</div>
+      </div>
+
+      <div class="pc c3 rev">
+        <div class="pn">03 / Migration critique</div>
+        <div class="pi">⚙️</div>
+        <div class="pt">Migration Traefik → HAProxy · ~40 services · Zéro interruption</div>
+        <p class="pd">Pilotage complet sur <strong>~40 services et applications métier</strong> en production. Analyse trafic, cartographie routes et middlewares, bascule progressive, plan de rollback documenté. <strong>Planifié, conduit et livré dans les délais</strong>, avec rigueur documentaire adaptée aux exigences production.</p>
+        <div class="pills">
+          <span class="pill pcoral">HAProxy</span><span class="pill pcoral">Traefik</span><span class="pill pmint">~40 services</span><span class="pill psky">Load balancing</span><span class="pill pamber">CAB</span>
+        </div>
+        <div class="pm"><span class="pdot" style="background:var(--coral)"></span> Livré dans les délais · 40 services · Production · OPPER</div>
+      </div>
+
+      <div class="pc c4 rev d1">
+        <div class="pn">04 / Continuité de service</div>
+        <div class="pi">🛡️</div>
+        <div class="pt">Veeam Backup & Replication · Restaurations production · BCM</div>
+        <p class="pd">Administration quotidienne : supervision d'un <strong>grand nombre de jobs de sauvegarde</strong>, traitement alertes, vérification intégrité. <strong>Restaurations régulières en production</strong> — fichiers, VMs, bases de données — en contexte d'urgence réel. BCM/PRA avec RTO/RPO par criticité. Périmètre VMware vCenter + multi-sites.</p>
+        <div class="pills">
+          <span class="pill pmint">Veeam B&R</span><span class="pill pmint">VMware vCenter</span><span class="pill psky">BCM / PRA</span><span class="pill pviolet">RTO / RPO</span><span class="pill pamber">Multi-sites</span>
+        </div>
+        <div class="pm"><span class="pdot" style="background:var(--mint)"></span> Restaurations quotidiennes · Production · Multi-sites · OPPER</div>
+      </div>
+
+      <div class="pc c5 full rev">
+        <div class="pfi">
+          <div>
+            <div class="pn">05 / DevOps · IaC · Agilité</div>
+            <div class="pi">🚀</div>
+            <div class="pt">Infrastructure as Code · Automatisation · Management Agile</div>
+            <p class="pd">Formation avancée RNCP 7 : provisioning avec <strong>Terraform</strong>, images immuables avec <strong>Packer</strong>, configuration avec <strong>Ansible</strong>, orchestration avec <strong>Kubernetes</strong>, pipelines CI/CD avec <strong>Jenkins</strong>. Management agile (Scrum, sprints, backlog) et cycle en V.</p>
+          </div>
+          <div>
+            <div class="pills">
+              <span class="pill pviolet">Terraform</span><span class="pill pviolet">Packer</span><span class="pill pviolet">Ansible</span><span class="pill pviolet">Kubernetes</span><span class="pill pviolet">Jenkins</span><span class="pill pmint">CI/CD</span><span class="pill psky">Management Agile</span><span class="pill psky">Scrum</span><span class="pill pamber">Cycle en V</span><span class="pill pamber">Gestion de projet</span>
+            </div>
+            <div class="pm" style="margin-top:16px;"><span class="pdot" style="background:var(--violet)"></span> Formation RNCP 7 · En cours · 2025–2026</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="sec" id="competences">
+  <div class="wrap">
+    <div class="stag rev">Compétences</div>
+    <h2 class="rev d1">Stack technique<br>par domaine</h2>
+    <p class="sdesc rev d2">Organisée par logique métier — pas par ordre alphabétique.</p>
+    <div class="skg">
+      <div class="skc rev">
+        <div class="skic">🐧</div>
+        <div class="skn">Infrastructure Linux / Windows</div>
+        <ul class="skl">
+          <li>Debian, Ubuntu, CentOS / RHEL</li>
+          <li>Windows Server 2016 – 2022</li>
+          <li>Active Directory, DNS, DHCP, GPO</li>
+          <li>PowerShell, Bash scripting</li>
+        </ul>
+      </div>
+      <div class="skc rev d1">
+        <div class="skic">☁️</div>
+        <div class="skn">Virtualisation & Cloud</div>
+        <ul class="skl">
+          <li>VMware vSphere / vCenter</li>
+          <li>Proxmox VE, Ceph, SDN</li>
+          <li>Docker, Docker Compose</li>
+          <li>Azure / Entra ID, AAD Connect</li>
+          <li>Terraform, Packer, Ansible</li>
+          <li>Kubernetes, Jenkins CI/CD</li>
+        </ul>
+      </div>
+      <div class="skc rev d2">
+        <div class="skic">🔒</div>
+        <div class="skn">Sécurité & Modern Workplace</div>
+        <ul class="skl">
+          <li>Intune, Autopilot, Defender for Endpoint</li>
+          <li>Exchange Online, gestion messagerie globale</li>
+          <li>FortiGate, VPN IPsec, Keycloak</li>
+          <li>MFA, LAPS, Conditional Access</li>
+          <li>Icinga, ELK Stack</li>
+        </ul>
+      </div>
+      <div class="skc rev">
+        <div class="skic">📧</div>
+        <div class="skn">M365 & Messagerie</div>
+        <ul class="skl">
+          <li>Exchange Online — admin messagerie globale</li>
+          <li>Boîtes partagées, listes, règles, quarantaine</li>
+          <li>SharePoint, Teams, OneDrive</li>
+          <li>Compliance, DLP, Defender for M365</li>
+          <li>Intune MDM + MAM</li>
+        </ul>
+      </div>
+      <div class="skc rev d1">
+        <div class="skic">🗄️</div>
+        <div class="skn">Bases de données</div>
+        <ul class="skl">
+          <li>SQL Server, PostgreSQL</li>
+          <li>MariaDB, MySQL</li>
+          <li>Sauvegardes, restaurations</li>
+          <li>Tuning, maintenance</li>
+        </ul>
+      </div>
+      <div class="skc rev d2">
+        <div class="skic">📋</div>
+        <div class="skn">Pilotage de projets IT</div>
+        <ul class="skl">
+          <li>Management agile · Scrum · Sprints</li>
+          <li>Cycle en V · WBS · RACI · SWOT</li>
+          <li>Gestion des risques · CAB · ROI</li>
+          <li>MS Project · ITIL · ServiceNow</li>
+        </ul>
+      </div>
+      <div class="skc full rev">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+          <div class="skic" style="margin-bottom:0;">⚙️</div>
+          <div class="skn" style="margin-bottom:0;">Infrastructure as Code & Automatisation</div>
+        </div>
+        <div class="skfi">
+          <span class="skch">Terraform</span><span class="skch">Packer</span><span class="skch">Ansible</span><span class="skch">Kubernetes</span><span class="skch">Jenkins CI/CD</span><span class="skch">Docker / Compose</span><span class="skch">GitLab CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec alt" id="contact">
+  <div class="wrap">
+    <div class="cbox rev">
+      <div class="ctag">Contact</div>
+      <h2>Travaillons ensemble</h2>
+      <p>Ouvert aux opportunités en administration infrastructure, M365/Intune, ingénierie systèmes, DevOps ou pilotage de projets IT — Nantes et environs, <strong style="color:var(--sky)">disponible à partir de novembre 2026.</strong></p>
+      <div class="clinks">
+        <a href="mailto:sergewembe2@yahoo.com" class="cbtn">✉ Email</a>
+        <a href="https://linkedin.com/in/serge-wembe" class="cbtn">💼 LinkedIn</a>
+        <a href="https://github.com/serge0208" class="cbtn">🐙 GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <div class="fn">Serge WEMBE II-ESSOUMBA</div>
+    <div class="fc">© 2026 · Nantes, France</div>
+    <div class="fst"><div class="dot"></div> Disponible nov. 2026</div>
+  </div>
+</footer>
+
+<script>
+const els = document.querySelectorAll('.rev');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
